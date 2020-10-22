@@ -16,6 +16,7 @@ function getWines(WINES_URL){
 )}
 
 function listWine(wine){
+    // sidebar.innerHTML = ""
     const div = document.createElement('div')
     const a = document.createElement('a')
     a.textContent = wine.name
@@ -36,7 +37,6 @@ function addWineBtn(){
 
     let h2 = document.createElement('h2')
     h2.textContent = "Add New Wine"
-
     btn.addEventListener('click', (e) => e.preventDefault(wineForm(h2)))
 }
 
@@ -47,6 +47,7 @@ function displayWine(wine){
     main.append(img)
     displayInfo(wine, img)
 }
+
 function displayInfo(wine){
     const section = document.createElement('section')
     const div = document.createElement('div')
@@ -92,22 +93,18 @@ function wineForm(h2, wine){
         label.textContent = thing.toUpperCase( )
         input.name = thing
         
-        if(wine.hasOwnProperty(input.name)){
-            wine_placeholder = wine[input.name]
-       }
-    
-        wine? input.placeholder = wine_placeholder : input.placeholder = "put something here"
+        wine? input.value = wine[input.name] : input.placeholder = "put something here"
         
         div.append(label, input)
         form.append(div)
     })
-    // if wine! prefill the boxes with the info
+    
     form.append(submit)
     main.append(h2, form)
-    form.addEventListener('submit', (e) => e.preventDefault(handleSubmit(e)))
+    form.addEventListener('submit', (e) => e.preventDefault(handleSubmit(e, wine)))
 }
 
-function handleSubmit(e){
+function handleSubmit(e, value){
     e.preventDefault()
     let wine = {
         name: e.target.name.value,
@@ -117,7 +114,7 @@ function handleSubmit(e){
         price: e.target.price.value,
         image_url: e.target.image_url.value
     }
-    postWine(wine)
+    value? updateWine(wine, value.id) : postWine(wine)
 }
 
 function postWine(wine){
@@ -136,4 +133,25 @@ function postWine(wine){
     .catch(error => {
         console.error('Errors: ', error)
     })
+}
+
+function updateWine(wine, id){
+    fetch(`${WINES_URL}/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(wine)
+    })
+    .then(res => res.json())
+    // .then(wine => {
+    //     displayWine(wine)
+    // })
+    .catch(error => {
+        console.error('Errors: ', error)
+    })
+    // getWines(WINES_URL)  doesn't render immediately
+    //just adds repeat of original sidebar = x2
+    listWine(wine)
+    displayWine(wine)
 }

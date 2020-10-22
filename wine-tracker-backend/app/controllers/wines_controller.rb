@@ -21,4 +21,16 @@ class WinesController < ApplicationController
         render json: wine
     end
 
+    def update
+        update_wine = Wine.find(params[:id])
+        wine = update_wine.update(
+            name: params[:name],
+            varietal: params[:varietal],
+            wine_type: params[:wine_type],
+            country: params[:country],
+            price: params[:price],
+            image_url: params[:image_url])
+        render json: wine
+    end
+
 end
