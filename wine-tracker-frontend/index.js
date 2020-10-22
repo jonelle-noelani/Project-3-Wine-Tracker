@@ -76,33 +76,54 @@ function displayInfo(wine){
 function wineForm(h2, wine){
     main.innerHTML = ''
     let attributes = ['name', 'varietal', 'wine_type', 'country', 'price', 'image_url']
-
     let form = document.createElement('form')
     let submit = document.createElement('input')
     
     submit.type = 'submit'
 
     attributes.forEach(thing => {
+        const div = document.createElement('div')
         let label = document.createElement('label')
         let input = document.createElement('input')
         label.for = thing
         label.textContent = thing.toUpperCase( )
         input.name = thing
 
-        form.append(label, input)
+        div.append(label, input)
+        form.append(div)
     })
+    // if wine! prefill the boxes with the info
     form.append(submit)
     main.append(h2, form)
-    form.addEventListener('submit', (e) => handleSubmit(e))
+    form.addEventListener('submit', (e) => e.preventDefault(handleSubmit(e)))
 }
 
 function handleSubmit(e){
     e.preventDefault()
-//         console.log(e.target.name.value),
-//         console.log(e.target.varital.value),
-//         console.log(e.target.wine_type.value)
-//     }
-        // name: e.target.name.value,
-        // varietal: e.target.varital.value,
-        // wine_type: e.target.wine_type.value
+    let wine = {
+        name: e.target.name.value,
+        varietal: e.target.varietal.value,
+        wine_type: e.target.wine_type.value,
+        country: e.target.country.value,
+        price: e.target.price.value,
+        image_url: e.target.image_url.value
+    }
+    postWine(wine)
+}
+
+function postWine(wine){
+    fetch(WINES_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(wine)
+    })
+    .then(res => res.json())
+    .then(wine => {
+        console.log(wine)
+    })
+    .catch(error => {
+        console.error('Errors: ', error)
+    })
 }
