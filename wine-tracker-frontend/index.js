@@ -11,7 +11,8 @@ function getWines(WINES_URL){
     .then(res => res.json( ))
     .then(wines => wines.forEach(wine => {
         listWine(wine)
-    })
+    }),
+        addWineBtn()
 )}
 
 function listWine(wine){
@@ -26,14 +27,82 @@ function listWine(wine){
     div.append(a)
 }
 
+function addWineBtn(){
+    const div = document.createElement('div')
+    const btn = document.createElement('button')
+    btn.innerText = 'Add New Wine'
+    sidebar.append(div)
+    div.append(btn)
+
+    let h2 = document.createElement('h2')
+    h2.textContent = "Add New Wine"
+
+    btn.addEventListener('click', (e) => e.preventDefault(wineForm(h2)))
+}
+
 function displayWine(wine){
     main.textContent = ""
     const img = document.createElement('img')
-    // const update_btn = document.createElement('button')
     img.src = wine.image_url
     main.append(img)
-    displayInfo(wine)
+    displayInfo(wine, img)
 }
-function displayInfo()
-    // const table = document.createElement('table'),
-    // const div = document.createElement('div')
+function displayInfo(wine){
+    const section = document.createElement('section')
+    const div = document.createElement('div')
+    div.innerText = `Name of the Winery: ${wine.name}`
+    const div1 = document.createElement('div')
+    div1.innerText = `Grape Varietal:  ${wine.varietal}`
+    const div2 = document.createElement('div')
+    div2.innerText = `Type of Wine:  ${wine.wine_type}`
+    const div3 = document.createElement('div')
+    div3.innerText = `Country of Origin:  ${wine.country}`
+    const div4 = document.createElement('div')
+    div4.innerText = `Price:  $${wine.price}`
+
+    let h2 = document.createElement('h2')
+    h2.textContent = "Edit Wine"
+
+    section.append(div, div1, div2, div3, div4)
+    main.append(section)
+
+    const btn = document.createElement('button')
+    btn.innerText = 'Edit Wine'
+    
+    section.append(btn)
+    btn.addEventListener('click', (e) => e.preventDefault(wineForm(h2, wine)))
+}
+
+function wineForm(h2, wine){
+    main.innerHTML = ''
+    let attributes = ['name', 'varietal', 'wine_type', 'country', 'price', 'image_url']
+
+    let form = document.createElement('form')
+    let submit = document.createElement('input')
+    
+    submit.type = 'submit'
+
+    attributes.forEach(thing => {
+        let label = document.createElement('label')
+        let input = document.createElement('input')
+        label.for = thing
+        label.textContent = thing.toUpperCase( )
+        input.name = thing
+
+        form.append(label, input)
+    })
+    form.append(submit)
+    main.append(h2, form)
+    form.addEventListener('submit', (e) => handleSubmit(e))
+}
+
+function handleSubmit(e){
+    e.preventDefault()
+//         console.log(e.target.name.value),
+//         console.log(e.target.varital.value),
+//         console.log(e.target.wine_type.value)
+//     }
+        // name: e.target.name.value,
+        // varietal: e.target.varital.value,
+        // wine_type: e.target.wine_type.value
+}
