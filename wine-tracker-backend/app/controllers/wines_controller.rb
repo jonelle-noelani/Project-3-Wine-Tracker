@@ -11,8 +11,13 @@ class WinesController < ApplicationController
     end
 
     def create
-        byebug
-        wine = Wine.find_or_create(params[:name, :varietal, :wine_type, :country, :price])
+        wine = Wine.find_or_create_by(
+            name: params[:name],
+            varietal: params[:varietal],
+            wine_type: params[:wine_type],
+            country: params[:country],
+            price: params[:price],
+            image_url: params[:image_url])
         render json: wine
     end
 
