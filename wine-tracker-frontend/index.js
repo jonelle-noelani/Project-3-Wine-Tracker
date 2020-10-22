@@ -71,6 +71,7 @@ function displayInfo(wine){
     
     section.append(btn)
     btn.addEventListener('click', (e) => e.preventDefault(wineForm(h2, wine)))
+    // console.log(Object.keys(wine)))
 }
 
 function wineForm(h2, wine){
@@ -81,6 +82,8 @@ function wineForm(h2, wine){
     
     submit.type = 'submit'
 
+    // let wine_keys = Object.keys(wine)
+    
     attributes.forEach(thing => {
         const div = document.createElement('div')
         let label = document.createElement('label')
@@ -88,7 +91,13 @@ function wineForm(h2, wine){
         label.for = thing
         label.textContent = thing.toUpperCase( )
         input.name = thing
-
+        
+        if(wine.hasOwnProperty(input.name)){
+            wine_placeholder = wine[input.name]
+       }
+    
+        wine? input.placeholder = wine_placeholder : input.placeholder = "put something here"
+        
         div.append(label, input)
         form.append(div)
     })
