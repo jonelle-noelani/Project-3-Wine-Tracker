@@ -121,7 +121,8 @@ function postWine(wine){
     })
     .then(res => res.json())
     .then(wine => {
-        console.log(wine)
+        listWine(wine),
+        displayWine(wine)
     })
     .catch(error => {
         console.error('Errors: ', error)
