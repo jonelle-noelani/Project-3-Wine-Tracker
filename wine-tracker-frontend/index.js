@@ -50,6 +50,7 @@ function displayWine(wine){
 }
 
 function displayInfo(wine){
+    debugger
     const section = document.createElement('section')
     const div = document.createElement('div')
     div.innerText = `Name of the Winery: ${wine.name}`
