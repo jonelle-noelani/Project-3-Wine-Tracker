@@ -33,4 +33,10 @@ class WinesController < ApplicationController
         render json: wine
     end
 
+    def destroy
+        wine = Wine.find(params[:id])
+        wine.destroy
+        # render json: {"message": "deleted wine"}
+    end
+
 end

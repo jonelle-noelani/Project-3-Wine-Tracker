@@ -37,7 +37,8 @@ ActiveRecord::Schema.define(version: 2020_10_20_164540) do
     t.string "wine_type"
     t.string "country"
     t.string "image_url"
-    t.decimal "price", precision: 5, scale: 3
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

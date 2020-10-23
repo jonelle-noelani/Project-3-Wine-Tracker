@@ -7,6 +7,7 @@ const sidebar = document.getElementById('sidebar')
 getWines(WINES_URL)
 
 function getWines(WINES_URL){
+    sidebar.innerHTML = ""
     fetch(WINES_URL)
     .then(res => res.json( ))
     .then(wines => wines.forEach(wine => {
@@ -66,13 +67,18 @@ function displayInfo(wine){
 
     section.append(div, div1, div2, div3, div4)
     main.append(section)
-
+    //
     const btn = document.createElement('button')
     btn.innerText = 'Edit Wine'
     
     section.append(btn)
     btn.addEventListener('click', (e) => e.preventDefault(wineForm(h2, wine)))
-    // console.log(Object.keys(wine)))
+    //
+    const delete_btn = document.createElement('button')
+    delete_btn.innerText = 'Delete Wine'
+    
+    section.append(delete_btn)
+    delete_btn.addEventListener('click', (e) => e.preventDefault(deleteWine(wine.id, section)))
 }
 
 function wineForm(h2, wine){
@@ -155,3 +161,17 @@ function updateWine(wine, id){
     listWine(wine)
     displayWine(wine)
 }
+
+function deleteWine(id){
+    fetch(`${WINES_URL}/${id}`, {
+        method: `DELETE`
+    })
+    .then(() => {
+        let deletedWine = document.querySelector('section')
+        deletedWine.remove()
+        let deleteimg = document.querySelector('img')
+        deleteimg.remove()
+        getWines(WINES_URL)
+    })
+}
+    
