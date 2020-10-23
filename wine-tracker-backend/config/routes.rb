@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :users
-  resources :wines
+  resources :reviews, only: [:index, :show]
+  resources :users, only: [:index, :show]
+  resources :wines, only: [:index, :show, :create, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

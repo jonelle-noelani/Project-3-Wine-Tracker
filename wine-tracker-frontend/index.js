@@ -37,7 +37,6 @@ function getUser(USER_ONE){
 }
 
 function listWine(wine){
-    // sidebar.innerHTML = ""
     const div = document.createElement('div')
     
     const a = document.createElement('a')
@@ -46,8 +45,6 @@ function listWine(wine){
     a.href = `${WINES_URL}/${wine.id}`
     div.addEventListener('click', (e) => e.preventDefault(displayWine(wine)))
     
-    // let txt = wine.name
-    // div.innerHTML = link_to (wine.name), `${WINES_URL}/${wine.id}`
     sidebar.append(div)
     div.append(a)
 }
@@ -179,14 +176,9 @@ function updateWine(wine, id){
         body: JSON.stringify(wine)
     })
     .then(res => res.json())
-    // .then(wine => {
-    //     displayWine(wine)
-    // })
     .catch(error => {
         console.error('Errors: ', error)
     })
-    // getWines(WINES_URL)  doesn't render immediately
-    //just adds repeat of original sidebar = x2
     listWine(wine)
     displayWine(wine)
 }
