@@ -19,10 +19,14 @@ function getWines(WINES_URL){
 function listWine(wine){
     // sidebar.innerHTML = ""
     const div = document.createElement('div')
+    
+
     const a = document.createElement('a')
     a.textContent = wine.name
+    a.id = "wine_list"
     a.href = `${WINES_URL}/${wine.id}`
-    div.addEventListener('click', (e) => e.preventDefault(displayWine(wine)))
+    a.addEventListener('click', (e) => e.preventDefault(displayWine(wine)))
+    
     // let txt = wine.name
     // div.innerHTML = link_to (wine.name), `${WINES_URL}/${wine.id}`
     sidebar.append(div)
@@ -33,6 +37,8 @@ function addWineBtn(){
     const div = document.createElement('div')
     const btn = document.createElement('button')
     btn.innerText = 'Add New Wine'
+    btn.className = "btn btn-outline-secondary"
+    btn.id = "add_new"
     sidebar.append(div)
     div.append(btn)
 
@@ -45,12 +51,12 @@ function displayWine(wine){
     main.textContent = ""
     const img = document.createElement('img')
     img.src = wine.image_url
+    img.className = "img-area"
     main.append(img)
     displayInfo(wine, img)
 }
 
 function displayInfo(wine){
-    debugger
     const section = document.createElement('section')
     const div = document.createElement('div')
     div.innerText = `Name of the Winery: ${wine.name}`

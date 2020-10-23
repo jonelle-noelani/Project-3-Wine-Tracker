@@ -1,0 +1,39 @@
+html{
+    background-color: #ff99ff;
+}
+h1{
+    font-family: Apple Chancery, cursive;
+    font-weight: 600;
+    background: #660066;
+    color:#ff99ff;
+    padding: 10px 3px 10px 10px
+}
+h2{
+    font-family: Apple Chancery, cursive;
+}
+#sidebar{
+    background: #660066;
+    height: 750px;
+    margin: 15px;
+}
+#wine_list{
+    font-family: Georgia, serif;
+    color: #ff99ff;
+}
+#add_new{
+    color: #ff99ff;
+}
+.btn.btn-outline-secondary{
+    max-width: 200px;
+}
+#main{
+    background:  #660066;
+    font-family: Georgia, serif;
+    color:#ff99ff;
+    position: center;
+}
+.img-area{
+    position: center;
+    position: relative;
+    offset: 10px;
+}
