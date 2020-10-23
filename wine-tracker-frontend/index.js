@@ -1,10 +1,12 @@
 const BASE_URL = "http://localhost:3000"
 const USERS_URL = `${BASE_URL}/users`
 const WINES_URL = `${BASE_URL}/wines`
+const USER_ONE = `${USERS_URL}/1`
 const main = document.querySelector('main')
 const sidebar = document.getElementById('sidebar')
 
 getWines(WINES_URL)
+getUser(USER_ONE)
 
 function getWines(WINES_URL){
     sidebar.innerHTML = ""
@@ -16,16 +18,33 @@ function getWines(WINES_URL){
         addWineBtn()
 )}
 
+function getUser(USER_ONE){
+    fetch(USER_ONE)
+    .then(res => res.json( ))
+    .then(user => {
+        const header = document.querySelector('header')
+        const div = document.createElement('div')
+        const a = document.createElement('a')
+
+        a.textContent = user.name
+        a.id = "user-name"
+        a.href = `${USER_ONE}`
+
+        div.addEventListener('click', (e) => e.preventDefault(displayUser(user)))
+        header.append(div)
+        div.append(a)
+    })
+}
+
 function listWine(wine){
     // sidebar.innerHTML = ""
     const div = document.createElement('div')
     
-
     const a = document.createElement('a')
     a.textContent = wine.name
     a.id = "wine_list"
     a.href = `${WINES_URL}/${wine.id}`
-    a.addEventListener('click', (e) => e.preventDefault(displayWine(wine)))
+    div.addEventListener('click', (e) => e.preventDefault(displayWine(wine)))
     
     // let txt = wine.name
     // div.innerHTML = link_to (wine.name), `${WINES_URL}/${wine.id}`
@@ -49,14 +68,19 @@ function addWineBtn(){
 
 function displayWine(wine){
     main.textContent = ""
+    row_div = document.createElement('div')
+    row_div.className = "row"
+
     const img = document.createElement('img')
     img.src = wine.image_url
     img.className = "img-area"
-    main.append(img)
-    displayInfo(wine, img)
+    row_div.append(img)
+    main.append(row_div)
+    displayInfo(wine, row_div)
+    displayReviews(wine, row_div)
 }
 
-function displayInfo(wine){
+function displayInfo(wine, row_div){
     const section = document.createElement('section')
     const div = document.createElement('div')
     div.innerText = `Name of the Winery: ${wine.name}`
@@ -73,7 +97,8 @@ function displayInfo(wine){
     h2.textContent = "Edit Wine"
 
     section.append(div, div1, div2, div3, div4)
-    main.append(section)
+    row_div.append(section)
+    main.append(row_div)
     //
     const btn = document.createElement('button')
     btn.innerText = 'Edit Wine'
@@ -95,8 +120,6 @@ function wineForm(h2, wine){
     let submit = document.createElement('input')
     
     submit.type = 'submit'
-
-    // let wine_keys = Object.keys(wine)
     
     attributes.forEach(thing => {
         const div = document.createElement('div')
@@ -111,12 +134,11 @@ function wineForm(h2, wine){
         div.append(label, input)
         form.append(div)
     })
-    
     form.append(submit)
     main.append(h2, form)
     form.addEventListener('submit', (e) => e.preventDefault(handleSubmit(e, wine)))
 }
-
+// handler
 function handleSubmit(e, value){
     e.preventDefault()
     let wine = {
@@ -129,7 +151,7 @@ function handleSubmit(e, value){
     }
     value? updateWine(wine, value.id) : postWine(wine)
 }
-
+// fetches and actions
 function postWine(wine){
     fetch(WINES_URL, {
         method: 'POST',
@@ -181,4 +203,50 @@ function deleteWine(id){
         getWines(WINES_URL)
     })
 }
+/// reviews  
+function displayReviews(wine, row_div){
+    wine.reviews.forEach(review => {
+        const section = document.createElement('section')
+        const div = document.createElement('div')
+        div.innerText = `Review By: Jonelle`
+        const div1 = document.createElement('div')
+        div1.innerText = `Rating:  ${review.rating}`
+        const div2 = document.createElement('div')
+        div2.innerText = `Review:  ${review.review}`
+
+        section.append(div, div1, div2)
+        row_div.append(section)
+        main.append(row_div)
+
+        const btn = document.createElement('button')
+        btn.innerText = 'Add Review'
     
+        section.append(btn)
+        btn.addEventListener('click', (e) => e.preventDefault(console.log("mkay")))
+    })
+}
+// user
+function displayUser(user){
+    main.textContent = ""
+    row_div = document.createElement('div')
+    row_div.className = "row"
+
+    const img = document.createElement('img')
+    img.src = user.image_url
+    img.className = "img-area"
+    row_div.append(img)
+    main.append(row_div)
+    displayUserInfo(user, row_div)
+}
+
+function displayUserInfo(user,row_div){
+    const section = document.createElement('section')
+    const div = document.createElement('div')
+    div.innerText = `User Name: ${user.name}`
+    const div1 = document.createElement('div')
+    div1.innerText = `Favorite Wine:  ${user.favorite_wine}`
+
+    section.append(div, div1)
+    row_div.append(section)
+    main.append(row_div)
+}
