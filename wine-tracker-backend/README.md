@@ -1,24 +1,48 @@
-# README
+# Wine Tracker & Rater
+#### By Jonelle Noelani Yacapin, 21 Dec 2020
+#### A single page application for a user to track wines and wine reviews. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Technologies Used
+* Ruby 2.6.1
+* Rails 6.0.3
+* Active Model Serializers 0.10.0
+* JavaScript
+* Bootstrap 4.5.3
 
-Things you may want to cover:
+## Description
+A user can view his/her profile and list of wines inputed into application.  User can add new wines as well as edit and/or delete wines.
 
-* Ruby version
+## Setup
+* Fork and clone this repository.
 
-* System dependencies
+Backend
+```
+$ cd wine-tracker-backend/
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+$ rails s
+```
+Frontend
+```
+$ cd wine-tracker-frontend/
+$ open index.html
+```
 
-* Configuration
+## Known Bugs
+* Needs an ‘Edit Profile’ button to make changes to user profile.
+* Needs an ‘Add Review’ button to add new reviews to a wine.
+* When submit changes to a wine it temporarily adds a new wine to end of list.  Fixes itself on refresh.
 
-* Database creation
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-* Database initialization
+Copyright (c) 2020 Jonelle Noelani Yacapin
 
-* How to run the test suite
+## Contact Information
+Jonelle Noelani Yacapin fromwinetocode@gmail.com
 
-* Services (job queues, cache servers, search engines, etc.)
+## Project Status
+A work in progress.  Plans to improve CSS and add features listed under ‘Known Bugs’.
 
-* Deployment instructions
-
-* ...
