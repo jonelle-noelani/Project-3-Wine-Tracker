@@ -12,6 +12,8 @@
 ## Description
 A user can view his/her profile and list of wines inputed into application.  User can add new wines as well as edit and/or delete wines.
 
+[![Wine Tracker and Rater View](wine-view.png)](https://youtu.be/d00rt2eg4lA)
+
 ## Setup
 * Fork and clone this repository.
 
@@ -45,4 +47,7 @@ Jonelle Noelani Yacapin fromwinetocode@gmail.com
 
 ## Project Status
 A work in progress.  Plans to improve CSS and add features listed under ‘Known Bugs’.
+
+## Related Blog
+During this project I learned an important lesson about using serializers and wrote a blog that you can read here:  [What Exactly Does The Serializer Do?](https://levelup.gitconnected.com/what-exactly-does-the-serializer-do-9eee3c2e61b7?sk=301e7b30c351bab155b1a680b9bdbdf3)
 
