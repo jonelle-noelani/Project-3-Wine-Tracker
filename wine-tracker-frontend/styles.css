@@ -2,8 +2,10 @@ html{
     background-color: #ff99ff;
 }
 h1{
-    font-family: Apple Chancery, cursive;
+    /* font-family: Apple Chancery, cursive; */
+    font-family: 'Redressed', cursive;
     font-weight: 600;
+    font-size: 60px;
     background: #660066;
     color:#ff99ff;
     padding: 10px 3px 10px 10px
@@ -12,7 +14,8 @@ h2{
     font-family: Apple Chancery, cursive;
 }
 #user-name{
-    font-family: Georgia, serif;
+    /* font-family: Georgia, serif; */
+    font-family: 'Roboto Slab', serif;
     color: #660066;
     margin-left: 15px;
 }
@@ -22,7 +25,9 @@ h2{
     margin: 15px;
 }
 #wine_list{
-    font-family: Georgia, serif;
+    /* font-family: Georgia, serif; */
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
     color: #ff99ff;
 }
 #add_new{
@@ -33,7 +38,8 @@ h2{
 }
 #main{
     background:  #660066;
-    font-family: Georgia, serif;
+    /* font-family: Georgia, serif; */
+    font-family: 'Roboto Slab', serif;
     color:#ff99ff;
     position: center;
 }
