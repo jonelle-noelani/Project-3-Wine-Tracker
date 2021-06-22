@@ -21,8 +21,8 @@ h2{
 }
 #sidebar{
     background: #660066;
-    height: 750px;
-    margin: 15px;
+    height: 800px;
+    /* margin: 15px; */
 }
 #wine_list{
     /* font-family: Georgia, serif; */
