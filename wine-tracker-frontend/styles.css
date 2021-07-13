@@ -51,3 +51,10 @@ h2{
 section{
     padding-left: 30px;
 }
+
+/**main grapes image**/
+#main-img {
+    width: 100%;
+    padding: 50px;
+    border: solid 10px #ff99ff;
+}
