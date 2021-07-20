@@ -49,7 +49,7 @@ function listWine(wine){
     
     const a = document.createElement('a')
     a.textContent = wine.name
-    a.id = "wine_list"
+    a.className = "wine_list"
     a.href = `${WINES_URL}/${wine.id}`
     div.addEventListener('click', (e) => e.preventDefault(displayWine(wine)))
     

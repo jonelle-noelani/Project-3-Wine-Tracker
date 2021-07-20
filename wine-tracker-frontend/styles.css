@@ -32,11 +32,12 @@ h2{
     height: 800px;
     /* margin: 15px; */
 }
-#wine_list{
+.wine_list{
     /* font-family: Georgia, serif; */
     font-family: 'Roboto Slab', serif;
     font-size: 24px;
     color: #ff99ff;
+    margin: 10px 20px;
 }
 #add_new{
     color: #ff99ff;
