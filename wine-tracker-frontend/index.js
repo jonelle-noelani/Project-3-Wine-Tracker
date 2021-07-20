@@ -8,6 +8,11 @@ const sidebar = document.getElementById('sidebar')
 getWines(WINES_URL)
 getUser(USER_ONE)
 
+function clickTitle(WINES_URL, USER_ONE){
+    const h1 = document.querySelector('h1')
+    h1.addEventListener('click', (e) => e.preventDefault(console.log('hit')))
+}
+
 function getWines(WINES_URL){
     sidebar.innerHTML = ""
     fetch(WINES_URL)
@@ -15,7 +20,8 @@ function getWines(WINES_URL){
     .then(wines => wines.forEach(wine => {
         listWine(wine)
     }),
-        addWineBtn()
+        addWineBtn(),
+        clickTitle()
 )}
 
 function getUser(USER_ONE){
