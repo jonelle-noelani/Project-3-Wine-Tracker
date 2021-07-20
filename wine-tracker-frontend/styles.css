@@ -1,6 +1,9 @@
 html{
     background-color: #ff99ff;
 }
+/* header{
+    clear: both;
+} */
 h1{
     /* font-family: Apple Chancery, cursive; */
     font-family: 'Redressed', cursive;
@@ -22,6 +25,7 @@ h2{
     font-family: 'Roboto Slab', serif;
     color: #660066;
     margin-left: 15px;
+    float: right;
 }
 #sidebar{
     background: #660066;
