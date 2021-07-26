@@ -8,9 +8,9 @@ const sidebar = document.getElementById('sidebar')
 getWines(WINES_URL)
 getUser(USER_ONE)
 
-function clickTitle(WINES_URL, USER_ONE){
+function clickTitle(){
     const h1 = document.querySelector('h1')
-    h1.addEventListener('click', (e) => e.preventDefault(window.history.pushState('', 'Title', '/j.noelani/Flatiron/Project-3/Project-3-Wine-Tracker/wine-tracker-frontend/index.html')))
+    h1.addEventListener('click', (e) => e.preventDefault(window.location.reload()))
 }
 
 function getWines(WINES_URL){
