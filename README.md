@@ -52,7 +52,7 @@ A work in progress.  Plans to improve CSS and add features listed under ‘Known
 During this project I learned an important lesson about using serializers and wrote a blog that you can read here:  [What Exactly Does The Serializer Do?](https://levelup.gitconnected.com/what-exactly-does-the-serializer-do-9eee3c2e61b7?sk=301e7b30c351bab155b1a680b9bdbdf3)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ## Up Next
-[ ] Have Title with event to return to "home" state  => I'll have to revisit this one
+[x] Have Title with event to return to "home" state  => I'll have to revisit this one
 [ ] Move profile name to upper right  => still needs adjusting
 [ ] Change 'Add New Wine" button  
 [ ] Add border and space to Producer Names
