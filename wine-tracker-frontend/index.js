@@ -28,8 +28,8 @@ function getUser(USER_ONE){
     fetch(USER_ONE)
     .then(res => res.json( ))
     .then(user => {
-        // const header = document.querySelector('header')
-        const h1 = document.querySelector('h1')
+        const header = document.querySelector('header')
+        // const h1 = document.querySelector('h1')
         const div = document.createElement('div')
         const a = document.createElement('a')
 
@@ -38,8 +38,8 @@ function getUser(USER_ONE){
         a.href = `${USER_ONE}`
 
         div.addEventListener('click', (e) => e.preventDefault(displayUser(user)))
-        // header.append(div)
-        h1.append(div)
+        header.append(div)
+        // h1.append(div)
         div.append(a)
     })
 }

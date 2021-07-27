@@ -3,32 +3,46 @@ html{
 }
 header{
     background: #660066;
-    display: inline-block;
+    /* clear: both;
+    display: inline-block; */
+    margin: 0 auto;
+    overflow: auto;
     width: 100%;
 }
 h1{
     /* font-family: Apple Chancery, cursive; */
-    box-sizing: border-box;
+    /* background: white; */
+    /* display: inline-block; */
     font-family: 'Redressed', cursive;
     font-weight: 600;
     font-size: 60px;
     color:#ff99ff;
     padding: 10px;
-    width: 80%;
+    
 }
 h1:hover{
     opacity: .5;
     cursor: pointer;
 }
+.title-div{
+    box-sizing: border-box;
+    float: left;
+    overflow: auto;
+    width: 80%;
+}
 #user-name{
     /* font-family: Georgia, serif; */
+    /* background: white; */
     box-sizing: border-box;
+    /* display: inline-block; */
+    float: left;
     font-family: 'Roboto Slab', serif;
     font-size: 20px;
     color: #ff99ff;
-    margin-left: 30px;
-    float: right;
-    padding: 10px;
+    /* margin-left: 30px; */
+    overflow: auto;
+    padding: 27px 15px;
+    text-align: right;
     width: 20%;
 }
 h2{
