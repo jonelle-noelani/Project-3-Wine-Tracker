@@ -53,6 +53,6 @@ During this project I learned an important lesson about using serializers and wr
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ## Up Next
 [x] Have Title with event to return to "home" state  => I'll have to revisit this one
-[ ] Move profile name to upper right  => still needs adjusting
+[x] Move profile name to upper right  => still needs adjusting
 [ ] Change 'Add New Wine" button  
 [ ] Add border and space to Producer Names

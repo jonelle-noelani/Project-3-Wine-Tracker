@@ -61,7 +61,7 @@ function addWineBtn(){
     const div = document.createElement('div')
     const btn = document.createElement('button')
     btn.innerText = 'Add New Wine'
-    btn.className = "btn btn-outline-secondary"
+    btn.className = "btn btn-outline-secondary btn-block"
     btn.id = "add_new"
     sidebar.append(div)
     div.append(btn)
